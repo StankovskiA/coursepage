@@ -1,0 +1,24 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+    {% include 'accounts/status.html' %}
+
+    <br>
+    <section id="instrucitons" class="bg-info text-center">
+        <h1 style="color: white">Welcome to School of Electronics</h1>
+
+        <h3 class="card-title">Instructions</h3>
+        <p >
+        <ol class="text-center">
+            <li>Choose a course you want to study</li>
+            <li>Begin or continue the chosen course</li>
+            <li>Read the content of each lecture</li>
+            <li>Correctly answer the question after each lecture</li>
+        </ol>
+        </p>
+        <a class="btn btn-primary" href="{% url 'courses' %}">Select a course</a> <br> <br>
+    </section>
+
+{% endblock %}
+

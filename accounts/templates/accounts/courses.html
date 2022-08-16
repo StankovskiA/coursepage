@@ -1,0 +1,36 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body bg-info">
+					<h5>Courses</h5>
+				</div>
+				<div class="card card-body border-info">
+					<table class="table table-striped ">
+						<tr class="thead-info bg-info">
+							<th>Course</th>
+							<th>Description</th>
+							<th>Progress</th>
+							<th></th>
+						</tr>
+
+						{% for course in courses %}
+							<tr>
+								<td>{{course.name}}</td>
+								<td>{{course.description}}</td>
+								<td>{{ course.completed_lectures }}/{{ course.lectures }}</td>
+                                <td><a class="btn btn-info" href="{% url 'course' course.id  %}">Open Course</a></td>
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}

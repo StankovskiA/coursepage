@@ -1,0 +1,59 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+    <br>
+
+    <div class="row" style="width: 70%">
+        <div class="col" style="height: 700px">
+            <div class="card card-body bg-info">
+                <h1>{{ course.name }}</h1>
+            </div>
+            <div class="card card-body border-info">
+                <h3>{{ course.description }}</h3>
+            </div>
+        </div>
+        {% if course.completed_lectures == 0 %}
+            <div class="col" style="height: 700px">
+                <div class="card card-body bg-warning">
+                    <h1>You haven't started this course yet</h1>
+                </div>
+                <div class="card card-body border-warning" style="height: 200px">
+                    <h3>Would you like to start learning this course?</h3>
+                    <a class="btn btn-warning" href="lecture/{{ course.completed_lectures|add:1 }}">Start Course</a>
+                </div>
+            </div>
+        {% elif course.completed_lectures == course.lectures %}
+            <div class="col" style="height: 700px">
+                <div class="card card-body bg-success">
+                    <h1>Course is already completed</h1>
+                </div>
+                <div class="card card-body border-success" style="height: 200px">
+                    <h3>Would you like to see your certificate for this course?</h3>
+                    <a class="btn btn-success" href="lecture/{{ course.completed_lectures|add:1 }}">See Certificate</a>
+                </div>
+            </div>
+
+
+        {% else %}
+            <div class="col" style="height: 700px">
+                <div class="card card-body bg-info">
+                    <h3>You have completed <br> {{ course.completed_lectures }} out of {{ course.lectures }} lectures
+                    </h3>
+                </div>
+                <div class="card card-body border-info" style="height: 200px">
+                    <h3>Do you want to continue?</h3>
+                    <a class="btn btn-info" href="lecture/{{ course.completed_lectures|add:1 }}">Continue Course</a>
+                </div>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

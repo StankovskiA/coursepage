@@ -1,0 +1,38 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+    <br>
+
+    <div class="row" style="width: 50%; margin-left: 30%">
+        <div class="col" style="height: 700px">
+            <h1 class="text-center mt-3">{{ course.name }}</h1>
+
+            <div class="card card-body bg-info">
+                <h1 class="text-center" style="color: white">Lecture #{{ lecture.id }}</h1>
+            </div>
+            <div class="card card-body border-info">
+                <div class="card">
+                    <h4 class="card-text text-justify">{{ lecture.content }}</h4>
+                    <div class="row">
+                        {% if lecture.id > 1 %}
+                            <a class="btn btn-info col"
+                               href='/course/{{ course.id }}/lecture/{{ course.completed_lectures|add:-1 }}'>Previous
+                                Lecture</a>
+                        {% endif %}
+                        <a class="btn btn-info col"
+                           href='/course/{{ course.id }}/quiz/{{ course.completed_lectures }}'>Question</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

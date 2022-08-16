@@ -1,0 +1,67 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+    <br>
+
+    <div class="row" style="width: 50%; margin-left: 30%">
+        <div class="col" style="height: 700px">
+            <h1 class="text-center mt-3">{{ course.name }}</h1>
+
+            <div class="card card-body bg-info">
+                <h1 class="text-center" style="color: white">Question #{{ quiz.id }}</h1>
+            </div>
+            <div class="card card-body border-info">
+                <div class="card">
+                    <h4 class="card-text text-justify">{{ quiz.question }}</h4>
+                    <div style="width: 70%; margin-left: 15%">
+                        <div class="row">
+
+                            <p class="btn btn-primary col"><a style="color: white; text-decoration: none"
+                                                              href='/course/{{ course.id }}/quiz/{{ quiz.id }}/?answer=wrong'>{{ quiz.wrong_answer1 }}</a>
+                            </p>
+                        </div>
+                        <div class="row">
+                            {% if quiz.id != course.lectures %}
+                                <p class="btn btn-primary col"><a style="color: white; text-decoration: none"
+                                                                  href='/course/{{ course.id }}/lecture/{{ quiz.id|add:1 }}'>{{ quiz.correct_answer }}</a>
+                                </p>
+                            {% else %}
+                                <p class="btn btn-primary col"><a style="color: white; text-decoration: none"
+                                                                  href='/course/{{ course.id }}/practical'>{{ quiz.correct_answer }}</a>
+                                </p>
+                            {% endif %}
+                        </div>
+                        <div class="row">
+                            <p class="btn btn-primary col"><a style="color: white; text-decoration: none"
+                                                              href='/course/{{ course.id }}/quiz/{{ quiz.id }}/?answer=wrong'>{{ quiz.wrong_answer2 }}</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="card card-body border-info">
+                <div class="card">
+                    {% if answer == 'wrong' %}
+                        <div class="row">
+                            <h4 class=" bg-warning col text-center">The answer is wrong</h4>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <a class="btn btn-info col"
+                           href='/course/{{ course.id }}/lecture/{{ quiz.id }}'>Read the lecture again</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

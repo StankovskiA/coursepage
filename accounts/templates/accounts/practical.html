@@ -1,0 +1,45 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+    <br>
+
+    <div class="row" style="width: 50%; margin-left: 30%">
+        <div class="row" >
+            <h1 class="text-center mt-3" style="margin-left: 15%">{{ course.name }}</h1>
+
+            <div class="card card-body bg-info">
+                <h1 class="text-center" style="color: white">Practical Question for {{ course.name }} </h1>
+            </div>
+            <div class="card" style="width: 100%;">
+                <div class="row">
+                    <div class="col">
+                        <img class="card-img-top" src="https://cdn.sparkfun.com//assets/parts/6/3/4/3/11021-04.jpg"
+                             alt="Card image cap">
+                        <img class="card-img-top" src="https://m.media-amazon.com/images/I/311bGhoaiPL._SX342_.jpg"
+                             alt="Card image cap">
+                    </div>
+                    <div class="col">
+                        <img class="card-img-top" src="https://5.imimg.com/data5/SX/VY/MY-2706893/thermistor-500x500.jpg"
+                             alt="Card image cap">
+                        <img class="card-img-top" src="https://m.media-amazon.com/images/I/51ZzCrcIx8L._SL1200_.jpg"
+                             alt="Card image cap">
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <h3 class="card-title text-center">Arduino exercise</h3>
+                    <p class="card-text">To complete this exercise connect the components to the arduino correctly.</p>
+                    <p class="card-text bg-warning">This is an example screen as the functionality is not so simple to implement.</p>
+                    <a href="/course/{{ course.id }}/lecture/{{ course.lectures|add:1 }}" class="btn btn-primary" style="margin-left: 35%">Finish Course</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
